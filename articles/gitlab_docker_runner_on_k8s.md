@@ -24,7 +24,9 @@ kubectl create namespace gitlab
 ```
 
 # Gitlab上からRunner Token取得
-ブラウザでRunnerを登録したいGitlab上のプロジェクト or グループのページに移動し`Settings` > `CI/CD` の `Runners` セクションを展開してください。
+ブラウザでRunnerを登録したいGitlab上のプロジェクト or グループのページに移動し`Settings` > `CI/CD` の `Runners` セクションを展開してください。画像の赤線部分に表示されています。
+
+![Runner Token](gitlab_docker_runner_on_k8s/Runner%20Token.png) 
 
 # helmのinstall
 
