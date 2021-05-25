@@ -1,8 +1,8 @@
 ---
-title: "k8s上にGitlab Runnerを立ち上げてdocker buildさせる" # 記事のタイトル
+title: "k8s上にGitlab Runnerを立ち上げてdocker buildさせるCI環境をつくる" # 記事のタイトル
 emoji: ":bear:" # アイキャッチとして使われる絵文字（1文字だけ）
 type: "tech" # tech: 技術記事 / idea: アイデア
-topics: [] # トピックス（タグ）["markdown", "rust", "aws"]のように指定する
+topics: ["kubernetes", "gitlab", "ci", "docker"] # トピックス（タグ）["markdown", "rust", "aws"]のように指定する
 published: false # 公開設定（falseにすると下書き）
 ---
 
