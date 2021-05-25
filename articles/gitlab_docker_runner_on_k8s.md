@@ -5,18 +5,31 @@ type: "tech" # tech: 技術記事 / idea: アイデア
 topics: [] # トピックス（タグ）["markdown", "rust", "aws"]のように指定する
 published: false # 公開設定（falseにすると下書き）
 ---
-#　k8s上に準備
+
+k8s上にdockerコマンドを実行できるGitlab Runnerをデプロイする手順を紹介します。
+
+# 前提
+この記事では以下が準備されていることを前提として進めます。
+
+- 構築済みのk8s
+- k8sにkubectlコマンドを実行できる開発マシン
+
+この後の作業は基本的にはこの開発マシン上で行っていきます。
+
+# k8s上にnamespace準備
 k8s上にrunnerが使うnamespace `gitlab`を作成します。
 
 ```
 kubectl create namespace gitlab
 ```
 
+# Gitlab上からRunner Token取得
+ブラウザでRunnerを登録したいGitlab上のプロジェクト or グループのページに移動し`Settings` > `CI/CD` の `Runners` セクションを展開してください。
 
 # helmのinstall
 
-helmコマンドを使えるようにします。
-スクリプトからインストールする場合は
+GitLab Runnerのデプロイにhelmを使用するため、先にhelmコマンドを使えるようにします。インストール方法は「 [helmのinstall](https://helm.sh/ja/docs/intro/install/)」を参照してください。
+スクリプトからインストールする場合は以下になります。
 
 ```
 $ curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
