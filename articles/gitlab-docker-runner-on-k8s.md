@@ -130,6 +130,38 @@ Gitlab上でも`Settings` > `CI/CD` の `Runners` セクションを展開して
 ![bailable runner](https://storage.googleapis.com/zenn-user-upload/898afvj6yy1g0m1orqako7ew1i9k)
 
 
+# .gitlab-ci.yml
+
+.gitlab-ci.ymlのサンプルも紹介します。下の例では、リポジトリ上のDockerfileがbuildされ、リポジトリ上にあるContainer Registryにimageがpushされます。
+
+
+```
+
+variables:
+  IMAGE_TAG: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME
+
+before_script:
+  - printenv
+  - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+
+image: docker:19.03.13
+services:
+  - docker:19.03.13-dind
+
+stages:
+  - push
+    
+push:
+  stage: push
+  tags:
+    - docker
+  script:
+    - docker build --no-cache --pull=true -t "$IMAGE_TAG" .
+    - docker push "$IMAGE_TAG"
+
+```
+
+以上。
 
 - 参考
     - [helmのinstall](https://helm.sh/ja/docs/intro/install/)
