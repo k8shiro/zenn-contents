@@ -7,6 +7,7 @@ published: false # 公開設定（falseにすると下書き）
 ---
 
 k8s上にdockerコマンドを実行できるGitlab Runnerをデプロイする手順を紹介します。
+この手順で作成されるものはkubernetes executerと呼ばれるタイプのrunnerになりますが、dockerコマンドを実行できるようにdind(docker in docer)と呼ばれる手法を実現できるように設定していきます。また、Gitlab.comで提供されているdockerタグのついたshared runneと共存できるように作りたいと思います。
 
 # 前提
 この記事では以下が準備されていることを前提として進めます。
@@ -72,7 +73,7 @@ gitlab_runner_helm_config.ymlの内容を変更します。以下は変更箇所
 ```
 replicas: 3
 gitlabUrl: https://gitlab.com/
-runnerRegistrationToken: "*****"
+runnerRegistrationToken: "<Runner Token>"
 rbac:
   create: true
 runners:
@@ -95,7 +96,9 @@ runners:
     DOCKER_CERT_PATH: "/certs/client"
 ```
 
+runnerRegistrationTokenは先ほど取得したRunner Tokenを入れてください。
 gitlab_runner_helm_config.ymlを見ると各項目の解説がコメントされているので参照ください。上記以外にもPodのリソースの制限等様々な設定可能項目があります。また、runnersの設定項目はdocs.gitlab.comの[Docker-in-Docker with TLS enabled](https://docs.gitlab.com/ee/ci/docker/using_docker_build.html#docker-in-docker-with-tls-enabled)に従って設定しています。ドキュメント上でenvはgitlab-ci.yml上で指定するようにしていますが、このタイミングで設定してしまっています。また`pre_build_script`を追加しています。これはCI実行時にdockerが起動前にpiplineが始まってしまうことがあるためdockerコマンドが使えるようになるまで松処理を入れています。
+envの項目についてですが、環境変数はドキュメント上では、`.gitlab-ci.yml`側の`variables`で設定するように記載されていますが、今回はrunnerの設定に埋め込んでしまっています。これはGitlab.comで提供されているdockerタグのついたshared runneと共存するためで、これと、`tags: "docker"`の設定により`.gitlab-ci.yml`が今回のrunnerとshared runnerどちらでも動作するようになります。
 
 
 # Runner 起動
@@ -122,8 +125,9 @@ NAME                                                     DESIRED   CURRENT   REA
 replicaset.apps/gitlab-runner-gitlab-runner-7777777777   3         3         3       9m26s
 ```
 
-# 確認
-最後に、Gitlab上にrunnerが登録されているか確認します。
+Gitlab上でも`Settings` > `CI/CD` の `Runners` セクションを展開して登録されていることを確認できます。
+
+![bailable runner](https://storage.googleapis.com/zenn-user-upload/898afvj6yy1g0m1orqako7ew1i9k)
 
 
 
