@@ -19,4 +19,4 @@ S3コンソールで作業を行います：https://console.aws.amazon.com/s3/
 
 ![s3-001](https://storage.googleapis.com/zenn-user-upload/ba60c7a469a0ec336e22e258.png)
 
-
+![s3-002-004](https://storage.googleapis.com/zenn-user-upload/7c38094a8cf27eba490be3a6.png)
