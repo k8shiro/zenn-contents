@@ -17,6 +17,13 @@ published: false # 公開設定（falseにすると下書き）
 
 S3コンソールで作業を行います：https://console.aws.amazon.com/s3/
 
+- ① バケットの作成をクリックします。
+
 ![s3-001](https://storage.googleapis.com/zenn-user-upload/ba60c7a469a0ec336e22e258.png)
+
+- ② バケット名とリージョンを指定します。
+  - バケット名は全世界で唯一の名前である必要があります。
+- ③ パブリックアクセスをすべてブロックの選択を外し、下にあるパブリックアクセスのブロックをすべてオフ～～～を選択します。
+- ④ バケットを作成をクリックします。
 
 ![s3-002-004](https://storage.googleapis.com/zenn-user-upload/7c38094a8cf27eba490be3a6.png)
