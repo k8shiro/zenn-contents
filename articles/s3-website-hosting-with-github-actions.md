@@ -23,6 +23,7 @@ S3コンソールで作業を行います：https://console.aws.amazon.com/s3/
 
 - ② バケット名とリージョンを指定します。
   - バケット名は全世界で唯一の名前である必要があります。
+  - ここ以外はデフォルトのままでバケットを作成します。
 
 ![s3-002](https://storage.googleapis.com/zenn-user-upload/a49aeda6705e31df1a55e870.png)
 
