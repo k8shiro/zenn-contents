@@ -33,6 +33,7 @@ S3コンソールで作業を行います：https://console.aws.amazon.com/s3/
     - ポリシーの内容は以下の通りに入力します。Resource部分は作成したバケットの名前に修正してください。
       - 公式のドキュメントは[ここ](https://docs.aws.amazon.com/ja_jp/AmazonS3/latest/userguide/WebsiteAccessPermissionsReqd.html)
  
+ バケットポリシー
  ```
  {
     "Version": "2012-10-17",
