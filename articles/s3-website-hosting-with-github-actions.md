@@ -27,7 +27,30 @@ S3コンソールで作業を行います：https://console.aws.amazon.com/s3/
 
 ![s3-002](https://storage.googleapis.com/zenn-user-upload/a49aeda6705e31df1a55e870.png)
 
-- ③ パブリックアクセスをすべてブロックの選択を外し、下にあるパブリックアクセスのブロックをすべてオフ～～～を選択します。
-- ④ バケットを作成をクリックします。
+- 作成したバケットをクリックしてアクセス許可のタブを開いてください。バケットの公開の設定をします。
+  - ③ ブロックパブリックアクセスを編集して画像のようにすべてオフにします。
+  - ④ バケットポリシーを編集します。
+    - ポリシーの内容は以下の通りに入力します。Resource部分は作成したバケットの名前に修正してください。
+      - 公式のドキュメントは[ここ](https://docs.aws.amazon.com/ja_jp/AmazonS3/latest/userguide/WebsiteAccessPermissionsReqd.html)
+ 
+ ```
+ {
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "PublicReadGetObject",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": [
+                "s3:GetObject"
+            ],
+            "Resource": [
+                "arn:aws:s3:::＜作成したバケットの名前＞/*"
+            ]
+        }
+    ]
+}
+ ```
 
-![s3-002-004](https://storage.googleapis.com/zenn-user-upload/7c38094a8cf27eba490be3a6.png)
+![s3-003-004](https://storage.googleapis.com/zenn-user-upload/9a3204eec8e7f137dd0eaeac.png)
+
