@@ -10,4 +10,5 @@ notionにはdatabaseと呼ばれる機能があります。名前の通りいわ
 
 Tableはexcelっぽい表形式のviewです。  
 まずはtableを二つ作ります。ドキュメント上で`/table`と入力して作れます。
+
 ![table-command](https://storage.googleapis.com/zenn-user-upload/3fb60bb9950b25c48f634cc1.png)
