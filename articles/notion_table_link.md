@@ -19,9 +19,33 @@ Tableはexcelっぽい表形式のviewです。
 
 ![table-command](https://storage.googleapis.com/zenn-user-upload/3fb60bb9950b25c48f634cc1.png)
 
+## table-sub
 table-subはName列・val1列・val2列を作りval1・val2はProprty TypeをNumberにします。
 
-![](https://storage.googleapis.com/zenn-user-upload/56ed0f4b448359f1f018114b.png)
+![table-sub](https://storage.googleapis.com/zenn-user-upload/56ed0f4b448359f1f018114b.png)
+
+できたら適当に値を入力してください。
+
+## table-main
+
+table-mainはまずtable-sub列にrelationを設定します。
+
+![relation](https://storage.googleapis.com/zenn-user-upload/b0dc8410e29bfbc7fb88de74.png)
+
+次にval1-sum列にrollupを設定します。
+![rollup1](https://storage.googleapis.com/zenn-user-upload/97918772eaa8ef0497a46c05.png)
+
+Configure rollupを選択し、
+![](https://storage.googleapis.com/zenn-user-upload/785cabaf7eab6410666ce556.png)
+
+以下のように各項目を設定します。
+- RELATIONをtable-sub
+- PROPERTYをval1
+- CALCULATEをSum
+
+![](https://storage.googleapis.com/zenn-user-upload/7639f5dc44ed3295ec25ce64.png)
+
+val2-avgも同様にCALCULATEをAverageに設定すれば完成です。
 
 
 
