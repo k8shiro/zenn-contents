@@ -6,8 +6,9 @@ topics: ["notion"] # トピックス（タグ）["markdown", "rust", "aws"]の�
 published: false # 公開設定（falseにすると下書き）
 ---
 
+NotionでTableから別Tableの値を参照して合計や平均を出す方法を紹介します。
 
-notionにはdatabaseと呼ばれる機能があります。名前の通りいわゆるデータベースで、これの入出力を行うためのviewが数パターン用意されていて、CalendarやBoard、Tableなどいくつかあります。今回はTableを使って作業していきます。
+Notionにはdatabaseと呼ばれる機能があります。名前の通りいわゆるデータベースで、これの入出力を行うためのviewが数パターン用意されていて、CalendarやBoard、Tableなどいくつかあります。今回はTableを使って作業していきます。
 
 # ゴール
 以下のようにtable-mainからtable-subが参照され、table-mainでは各行でtable-subの行が複数参照されval1のSUMとval2のAverageが計算されます。
