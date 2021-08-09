@@ -1,0 +1,12 @@
+---
+title: "Selenium+Selenium IDEでちゃちゃっとブラウザを自動操作する[Docker・Python]" # 記事のタイトル
+emoji: "🐻" # アイキャッチとして使われる絵文字（1文字だけ）
+type: "tech" # tech: 技術記事 / idea: アイデア
+topics: ["selenium"] # トピックス（タグ）["markdown", "rust", "aws"]のように指定する
+published: false # 公開設定（falseにすると下書き）
+---
+
+[Selenium](https://www.selenium.dev/ja/documentation/)はプログラムからブラウザを自動操作するためのツールです。Seleniumが用意しているWebDriverを各言語(Python, Ruby, JavaScriptなど)から呼び出し利用します。主にフロントエンドのテストやクローリング・スクレイピングなどに使われます。この記事では、SeleniumをPythonベースで動かす環境をDockerで作成する方法と、Seleniumを動かすPythonプログラムをSelenium IDEをつかって自動生成する方法を解説します。
+
+# Selenium IDEを使う
+Selenium IDEとは
