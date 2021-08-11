@@ -25,4 +25,4 @@ Selenium IDEを使って`https://zenn.dev/`を自動操作するコードを出�
   - PythonでExport
 - Save Project 
 
-![selenium_zenn.gif](/images/selenium_zenn.gif)
+![selenium_zenn2.gif](/images/selenium_zenn2.gif)
