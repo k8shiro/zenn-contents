@@ -87,7 +87,7 @@ docker-compose down
 
 
 
-```
+```diff python
  class TestTest1():
    def setup_method(self, method):
 -    self.driver = webdriver.Chrome()
