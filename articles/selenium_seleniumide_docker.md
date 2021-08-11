@@ -85,7 +85,7 @@ docker-compose down
 
 # `selenium_tset.py`の修正
 
-修正差分は以下か[リポジトリのdiff](https://github.com/k8shiro/selenium-docker-sample_zenn-article/commit/1bb8214518f616ba4b276d847819d78ba96c2bc3?branch=1bb8214518f616ba4b276d847819d78ba96c2bc3&diff=unified)を参照してください。重要なのは`setup_method`の変更でWebDriverを`webdriver.Remote`でchromeコンテナの4444ポートに向かうようにしています。`teardown_method`の変更は実際に実行しながら引っかかった場所を修正します。このコードは自動生成されたものなので微妙に動かないところを修正しています。多くの場合は操作速度が速すぎてブラウザの描画が追い付かないことが問題になるので`time.sleep`を入れています。これ以外でもseleniumやchromeのバージョン違い等でエラーになる個所もあるので都度修正します。
+修正差分は以下か[リポジトリのdiff](https://github.com/k8shiro/selenium-docker-sample_zenn-article/commit/1bb8214518f616ba4b276d847819d78ba96c2bc3?branch=1bb8214518f616ba4b276d847819d78ba96c2bc3&diff=unified)を参照してください。重要なのは`setup_method`の変更でWebDriverを`webdriver.Remote`でchromeコンテナの4444ポートに向かうようにしています。操作コード部分の変更は実際に実行しながら引っかかった場所を修正します。このコードは自動生成されたものなので微妙に動かないところを修正しています。多くの場合は操作速度が速すぎてブラウザの描画が追い付かないことが問題になるので`time.sleep`を入れています。これ以外でもseleniumやchromeのバージョン違い等でエラーになる個所もあるので都度修正します。
 
 
 ```diff python
@@ -102,7 +102,6 @@ docker-compose down
  
      ~~略~~
  
-   def teardown_method(self, method):
      actions.move_to_element(element).perform()
      element = self.driver.find_element(By.CSS_SELECTOR, "body")
      actions = ActionChains(self.driver)
