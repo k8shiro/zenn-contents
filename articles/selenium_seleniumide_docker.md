@@ -12,18 +12,19 @@ published: false # 公開設定（falseにすると下書き）
 Selenium IDEとはブラウザの拡張として(Chrome・Firefoxで)提供され、ブラウザ上で行った操作の記録・再生やSeleniumドライバを動かすコードとして出力できるツールです。
 Selenium IDEを使って`https://zenn.dev/`を自動操作するコードを出力してみます。手順は以下のgifを参照してください。
 
-- Selenium IDE起動
-- Create a new project(プロジェクトの作成)
-- テストの作成
-- レコーディングの開始
-- base URL（自動操作を始めたいURL）の入力
-  - `https://zenn.dev/` を入力
-- ブラウザを自動操作
-- レコーディング停止
-- レコーディング内容の確認
-- Export
-  - PythonでExport
-- Save Project 
+- gifの内容
+  - Selenium IDE起動
+  - Create a new project(プロジェクトの作成)
+  - テストの作成
+  - レコーディングの開始
+  - base URL（自動操作を始めたいURL）の入力
+    - `https://zenn.dev/` を入力
+  - ブラウザを自動操作
+  - レコーディング停止
+  - レコーディング内容の確認
+  - Export
+    - PythonでExport
+  - Save Project 
 
 ![selenium_zenn2.gif](/images/selenium_zenn2.gif)
 
