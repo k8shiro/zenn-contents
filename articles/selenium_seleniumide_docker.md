@@ -65,7 +65,7 @@ services:
 ```
 
 
-まずchromeコンテナですが、[selenium/standalone-chrome:4.0.0-rc-1-prerelease-20210804](https://hub.docker.com/r/selenium/standalone-chrome) を使います。Selenium関連の[公式Docker image](https://hub.docker.com/u/selenium)はいろいろな種類があるのですが、このimageは[docker-seleniumgithubのREADME.md](https://github.com/SeleniumHQ/docker-selenium)で説明されているimageでseleniumのWebDriver、chromeブラウザ、noVNCが入っています。4444ポートはWebDriver用で、pythonコンテナから4444ポート向けにseleniumコードを実行します。7900ポートはnoVNCサーバが立ち上がってます。コンテナ外のブラウザからhttp://<localhost or dockerのホスト>:7900/のようにアクセスするとnoVNCにつながり、seleniumを実行したときにコンテナ内でブラウザが自動祖刺される様子を見ることができます。
+まずchromeコンテナですが、[selenium/standalone-chrome:4.0.0-rc-1-prerelease-20210804](https://hub.docker.com/r/selenium/standalone-chrome) を使います。Selenium関連の[公式Docker image](https://hub.docker.com/u/selenium)はいろいろな種類があるのですが、このimageは[docker-seleniumgithubのREADME.md](https://github.com/SeleniumHQ/docker-selenium)で説明されているimageでseleniumのWebDriver、chromeブラウザ、noVNCが入っています。4444ポートはWebDriver用で、pythonコンテナから4444ポート向けにseleniumコードを実行します。7900ポートはnoVNCサーバが立ち上がってます。コンテナ外のブラウザからhttp://<localhost or dockerのホスト>:7900/のようにアクセスするとnoVNCにつながり、seleniumを実行したときにコンテナ内でブラウザが自動祖刺される様子を見ることができます。noVNCにアクセスするときのパスワードは`secret`です[(README.md参照)](https://github.com/SeleniumHQ/docker-selenium#quick-start)。
 
 そして、pythonコンテナはSelenium IDEで作成した`selenium_tset.py`を実行するためのコンテナです。`selenium_tset.py`が入っている`python/`ディレクトリをマウントしていて、また、落ちないように`tty: true`が設定してあります。Pythonとselenium、pytestが必要なので以下のようにDockerfileを作成します。
 
