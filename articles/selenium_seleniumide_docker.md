@@ -148,8 +148,7 @@ docker-compose down
  実行して以下のようになれば成功です。
  
  ```
- # docker-compose exec  python  
-pytest /python/selenium_test.py
+ # docker-compose exec python pytest /python/selenium_test.py
 ================================ test session starts =================================
 platform linux -- Python 3.9.6, pytest-6.2.4, py-1.10.0, pluggy-0.13.1
 rootdir: /python
