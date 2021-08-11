@@ -9,7 +9,7 @@ published: false # 公開設定（falseにすると下書き）
 [Selenium](https://www.selenium.dev/ja/documentation/)はプログラムからブラウザを自動操作するためのツールです。Seleniumが用意しているWebDriverを各言語(Python, Ruby, JavaScriptなど)から呼び出し利用します。主にフロントエンドのテストやクローリング・スクレイピングなどに使われます。この記事では、SeleniumをPythonベースで動かす環境をDockerで作成する方法と、Seleniumを動かすPythonプログラムをSelenium IDEをつかって自動生成する方法を解説します。
 
 # Selenium IDEを使って自動操作コードを出力
-Selenium IDEとはブラウザの拡張として(Chrome・Firefoxで)提供され、ブラウザ上で行った操作の記録・再生やSeleniumドライバを動かすコードとして出力できるツールです。
+Selenium IDEとはブラウザの拡張として(Chrome・Firefoxで)提供され、ブラウザ上で行った操作の記録・再生やSeleniumドライバを動かすコードとして出力できるツールです。今回は[ChromeのSelenium IDE(https://chrome.google.com/webstore/detail/selenium-ide/mooikfkahbdckldjjndioackbalphokd?hl=ja)](https://chrome.google.com/webstore/detail/selenium-ide/mooikfkahbdckldjjndioackbalphokd?hl=ja)を使います。
 Selenium IDEを使って`https://zenn.dev/`を自動操作するコードを出力してみます。手順は以下のgifを参照してください。
 
 - gifの内容
