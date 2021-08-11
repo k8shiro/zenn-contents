@@ -87,7 +87,60 @@ docker-compose down
 
 
 
-
+```
+ class TestTest1():
+   def setup_method(self, method):
+-    self.driver = webdriver.Chrome()
++    #self.driver = webdriver.Chrome()
++    options = webdriver.ChromeOptions()
++    self.driver = webdriver.Remote(
++        command_executor='http://chrome:4444/wd/hub',
++        options = webdriver.ChromeOptions()
++    )
+     self.vars = {}
+   
+   def teardown_method(self, method):
+     actions.move_to_element(element).perform()
+     element = self.driver.find_element(By.CSS_SELECTOR, "body")
+     actions = ActionChains(self.driver)
+-    actions.move_to_element(element, 0, 0).perform()
++    actions.move_to_element(element).perform()
+     self.driver.find_element(By.LINK_TEXT, "Books").click()
+     element = self.driver.find_element(By.LINK_TEXT, "Books")
+     actions = ActionChains(self.driver)
+     actions.move_to_element(element).perform()
+     element = self.driver.find_element(By.CSS_SELECTOR, "body")
+     actions = ActionChains(self.driver)
+-    actions.move_to_element(element, 0, 0).perform()
++    actions.move_to_element(element).perform()
+     self.driver.find_element(By.LINK_TEXT, "Scraps").click()
+     element = self.driver.find_element(By.LINK_TEXT, "Scraps")
+     actions = ActionChains(self.driver)
+     actions.move_to_element(element).perform()
+     element = self.driver.find_element(By.CSS_SELECTOR, "body")
+     actions = ActionChains(self.driver)
+-    actions.move_to_element(element, 0, 0).perform()
++    actions.move_to_element(element).perform()
+     self.driver.find_element(By.CSS_SELECTOR, "#header-search > svg").click()
++    time.sleep(1)
++    from selenium.webdriver.support.ui import WebDriverWait
+     self.driver.find_element(By.CSS_SELECTOR, ".search_searchformField__1JsnC").click()
+     self.driver.find_element(By.CSS_SELECTOR, ".search_searchformField__1JsnC").send_keys("Docker")
+-    self.driver.find_element(By.CSS_SELECTOR, ".search_searchformButton__1hnWU path").click()
++    time.sleep(3)
++    self.driver.find_element(By.CSS_SELECTOR, ".search_searchformButton__1hnWU").click()
+     self.driver.find_element(By.ID, "footer").click()
++    time.sleep(3)
+     self.driver.find_element(By.CSS_SELECTOR, ".Button_secondary__3YnG6").click()
+     element = self.driver.find_element(By.CSS_SELECTOR, ".Button_secondary__3YnG6")
+     actions = ActionChains(self.driver)
+     actions.move_to_element(element).perform()
+     element = self.driver.find_element(By.CSS_SELECTOR, "body")
+     actions = ActionChains(self.driver)
+-    actions.move_to_element(element, 0, 0).perform()
++    actions.move_to_element(element).perform()
+     self.driver.execute_script("window.scrollTo(0,0)")
+ ```
 
 
 
