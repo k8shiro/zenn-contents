@@ -26,3 +26,4 @@ Selenium IDEを使って`https://zenn.dev/`を自動操作するコードを出�
 - Save Project 
 
 ![selenium_zenn2.gif](/images/selenium_zenn2.gif)
+
