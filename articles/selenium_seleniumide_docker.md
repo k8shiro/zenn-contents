@@ -85,6 +85,7 @@ docker-compose down
 
 # `selenium_tset.py`の修正
 
+修正差分は以下か[リポジトリのdiff](https://github.com/k8shiro/selenium-docker-sample_zenn-article/commit/1bb8214518f616ba4b276d847819d78ba96c2bc3?branch=1bb8214518f616ba4b276d847819d78ba96c2bc3&diff=unified)を参照してください。重要なのは`setup_method`の変更でWebDriverを`webdriver.Remote`でchromeコンテナの4444ポートに向かうようにしています。`teardown_method`の変更は実際に実行しながら引っかかった場所を修正します。このコードは自動生成されたものなので微妙に動かないところを修正しています。多くの場合は操作速度が速すぎてブラウザの描画が追い付かないことが問題になるので`time.sleep`を入れています。これ以外でもseleniumやchromeのバージョン違い等でエラーになる個所もあるので都度修正します。
 
 
 ```diff python
@@ -98,7 +99,9 @@ docker-compose down
 +        options = webdriver.ChromeOptions()
 +    )
      self.vars = {}
-   
+ 
+     ~~略~~
+ 
    def teardown_method(self, method):
      actions.move_to_element(element).perform()
      element = self.driver.find_element(By.CSS_SELECTOR, "body")
@@ -141,7 +144,28 @@ docker-compose down
 +    actions.move_to_element(element).perform()
      self.driver.execute_script("window.scrollTo(0,0)")
  ```
+ 
+ 実行して以下のようになれば成功です。
+ 
+ ```
+ # docker-compose exec  python  
+pytest /python/selenium_test.py
+================================ test session starts =================================
+platform linux -- Python 3.9.6, pytest-6.2.4, py-1.10.0, pluggy-0.13.1
+rootdir: /python
+collected 1 item                                                                     
 
+python/selenium_test.py .                                                      [100%]
+
+================================= 1 passed in 15.64s =================================
+```
+
+あとは必要に応じてテストやHTMLの解析コードを追加すればよいです。例えばhtmlをprintしてtitleをテストするなら以下のようなコードを追加してあげればできます。
+
+```python
+print(self.driver.page_source)
+assert "検索" in self.driver.title
+```
 
 
 
