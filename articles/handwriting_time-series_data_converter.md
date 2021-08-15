@@ -3,7 +3,7 @@ title: "機械学習とかで使う時系列データを手書きのグラフか
 emoji: "🐻" # アイキャッチとして使われる絵文字（1文字だけ）
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["csv", "tool", "canvas", "javascript"] # トピックス（タグ）["markdown", "rust", "aws"]のように指定する
-published: false # 公開設定（falseにすると下書き）
+published:  # 公開設定（falseにすると下書き）
 ---
 
 # 背景
