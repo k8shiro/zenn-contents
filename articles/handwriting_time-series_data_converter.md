@@ -13,7 +13,7 @@ published: false # 公開設定（falseにすると下書き）
 デモを以下のページで公開しています。
 - demo: https://k8shiro.github.io/handwriting_time-series_data_converter/
 
-以下のような感じで時系列のデータをcsvファイルで生成できます。
+以下のような感じで時系列データをcsvファイルで生成できます。
 ![timeseries-tool.gif](/images/timeseries-tool.gif)
 
 # 使い方
