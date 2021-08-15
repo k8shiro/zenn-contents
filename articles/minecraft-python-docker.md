@@ -19,7 +19,7 @@ published: false # 公開設定（falseにすると下書き）
 │   ├── Dockerfile
 │   └── requirements.txt
 └── plugins
-    └── raspberryjuice-1.8.jar
+    └── raspberryjuice-1.12.1.jar
 ```
 
 基本は[こちら](https://github.com/itzg/docker-minecraft-server/wiki/Minecraft-Pi)のドキュメントをベースに手順を作成していますが、ドキュメントどおりに行うと上手く動かなかったので一部修正しています。
@@ -35,7 +35,6 @@ services:
     container_name: "mc-pi"
 
     ports:
-      #- "25575:25575"
       - "25565:25565"
       - "4711:4711"
 
@@ -62,5 +61,61 @@ services:
     command: start-notebook.sh --NotebookApp.token='password'
 ```
 
-minecraft-serverはSpigotを使用しています（ドキュメントを見る限りほかのModサーバーも選択できそう）。Minecraftのバージョンは1.8で立ち上がるのでサーバーにクライアント側から接続する場合は注意してください。古いバージョンを使っているのはpythonから操作するできるようにModの[RaspberryJuice](https://www.spigotmc.org/resources/raspberryjuice.22724/)が新しいMinecraftのバージョンに対応していないためです。RaspberryJuiceのドキュメント上では1.7～1.12.1まで対応しているようなのでもう少し新しいバージョンのMinecraftでも大丈夫かもしれません。
+minecraft-serverはMinecraftサーバーが立ち上がります。サーバーにはSpigotを使用しています（ドキュメントを見る限りほかのModサーバーも選択できそう）。Minecraftのバージョンは`1.8`で立ち上がるのでサーバーにクライアント側から接続する場合は注意してください。古いバージョンを使っているのはpythonから操作するできるようにModの[RaspberryJuice](https://www.spigotmc.org/resources/raspberryjuice.22724/)が新しいMinecraftのバージョンに対応していないためです。RaspberryJuiceのドキュメント上では1.7～1.12.1まで対応しているようなのでもう少し新しいバージョンのMinecraftでも大丈夫かもしれません。
 
+jupyterはJupyterLabが立ち上がります。ブラウザでdockerを動かしているホストの8888ポートにアクセスすればJupyterLabの画面が見えます。アクセスするとパスワードを求められるので`password`と入力してください。
+
+## jupyterディレクトリ
+### Dockerfile
+jupyterlabを立ち上げるためにDockerfileです。
+
+```
+FROM jupyter/datascience-notebook
+COPY requirements.txt /home/jovyan/work/requirements.txt
+RUN pip install -r /home/jovyan/work/requirements.txt
+```
+
+### requirements.txt
+py3minepiというRaspberryJuice Modとpythonが通信するためのパッケージをinstallします。
+
+```
+git+https://github.com/py3minepi/py3minepi
+```
+
+
+## pluginsディレクトリ
+Modをこのディレクトリに入れます。今回必要なModのRaspberryJuice(raspberryjuice-1.12.1.jar)を
+
+- https://www.spigotmc.org/resources/raspberryjuice.22724/
+
+からダウンロードして配置してください。
+
+# 起動
+docker-composeでビルドと起動をします。
+
+```
+$ docker-compose build
+$ docker-compose up -d
+```
+
+# 動作確認
+
+JupyterLabでpythonのnotebookを作って以下のコードを実行してください。
+
+```python
+from mcpi.minecraft import Minecraft
+mc = Minecraft.create("minecraft-server", 4711)
+mc.postToChat("Hello Minecraft!!!")
+```
+
+`docker-compose logs`で`Hello Minecraft!!!`と出力されれば成功です。
+
+```
+$ docker-compose logs -f minecraft-server
+～略～
+mc-pi               | [10:54:58 INFO]: Hello Minecraft!!!
+```
+
+Minecraftサーバーにアクセスしていればチャットにも表示されます。
+
+![hello-minecraft.png](/images/hello-minecraft.png)
