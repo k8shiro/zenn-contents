@@ -1,5 +1,5 @@
 ---
-title: "minecraftサーバーとJupyterLabをDockerで立ち上げてminecraftをpythonから操作する環境をDockerで立ち上げる" # 記事のタイトル
+title: "minecraftサーバーとJupyterLabをDockerで立ち上げてpythonからminecraftする環境を作る" # 記事のタイトル
 emoji: "🐻" # アイキャッチとして使われる絵文字（1文字だけ）
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["minecraft", "python", "docker", "jupyterlab", "jupyternotebook"] # トピックス（タグ）["markdown", "rust", "aws"]のように指定する
