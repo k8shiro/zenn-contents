@@ -169,3 +169,4 @@ assert "検索" in self.driver.title
 Selenium IDEでブラウザの自動操作コードを生成し、実行環境をdocker・pythonベースで用意する方法を解説しました。ブラウザの自動テストを作るのにはSelenium IDEを使えばだいぶ楽できるのではないかと思います。一方でクローリング・スクレイピング等に使うには多くの場合は、urlを直接指定できるので普通にhttp client(pythonならurllib.request)でよいかと思いますが、formから認証が必要な場合やブラウザのキャッシュが必要な場合などはSeleniumを使ってしまった方が簡単かもしれません。
 
 
+
