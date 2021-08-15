@@ -19,7 +19,7 @@ published: true # 公開設定（falseにすると下書き）
 # 使い方
 以下のリポジトリのindex.htmlが本体です。index.htmlで完結しているのでローカルにダウンロードしたindex.htmlをHTMLのcanvasが動くブラウザ(Chromeで動作確認)で使用できると思います。細かい使い方は上記のgifかindex.htmlの先頭部分に書いてあります。
 
-- リポジトリ: https://github.com/k8shiro/handwriting_time-series_data_converter- 
+- リポジトリ: https://github.com/k8shiro/handwriting_time-series_data_converter 
 - 本体: https://github.com/k8shiro/handwriting_time-series_data_converter/blob/main/index.html
 
 # 中身の解説
