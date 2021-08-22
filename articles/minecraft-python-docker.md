@@ -3,7 +3,7 @@ title: "minecraftサーバーとJupyterLabをDockerで立ち上げてpythonか�
 emoji: "🐻" # アイキャッチとして使われる絵文字（1文字だけ）
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["minecraft", "python", "docker", "jupyterlab", "jupyternotebook"] # トピックス（タグ）["markdown", "rust", "aws"]のように指定する
-published: false # 公開設定（falseにすると下書き）
+published: true # 公開設定（falseにすると下書き）
 ---
 
 サンドボックスゲームの「Minecraft」はModを追加することでプログラムから操作することができます。今回はプログラムから操作可能な状態のMinecraftサーバーとPython実行用のJupyterLabサーバーをdocker-compsoeでまとめて立ち上げる方法を解説します。
