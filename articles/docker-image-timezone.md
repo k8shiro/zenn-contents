@@ -85,7 +85,11 @@ Docker Hub上のofficialイメージでcategory=os、architecture=x86-64(amd64)�
 | cirros | Thu Jan 27 06:24:26 UTC 2022 | Thu Jan 27 06:24:27 UTC 2022 | Thu Jan 27 06:24:28 UTC 2022 |
 | centos | Thu Jan 27 06:24:29 UTC 2022 | Thu Jan 27 15:24:30 JST 2022 | Thu Jan 27 15:24:31 JST 2022 |
 
+環境変数設定の場合、タイムゾーンがAsiaとなってしまっているものがありますが、時刻を見るとUTCのままでタイムゾーンの変更に失敗していることがわかります。
+
 **各方法でのタイムゾーン変更の可否**
+
+上記結果をまとめると以下のようにまります。
 
 | OS | 環境変数設定 | localetime上書き |
 | -- | -- | -- |
