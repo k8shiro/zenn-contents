@@ -107,3 +107,8 @@ Docker Hub上のofficialイメージでcategory=os、architecture=x86-64(amd64)�
 | crux | 〇 | 〇 |
 | cirros | × | × |
 | centos | 〇 | 〇 |
+
+cirrosのみlocaletime上書きの方法でもタイムゾーンを変更できませんでしたが、テスト用のイメージなので実際に困る場面はないのかと思われます。
+
+> CirrOS は、OpenStack Compute のようなクラウドでテストイメージとして使用するために設計された、最小の Linux ディストリビューションです。 CirrOS ダウンロードページ から CirrOS をさまざまな形式でダウンロードできます。
+https://docs.openstack.org/ja/image-guide/obtain-images.html
