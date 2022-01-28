@@ -1,5 +1,5 @@
 ---
-title: "Docker imageごとのタイムゾーン設定方法まとめ" # 記事のタイトル
+title: "【OS 14種類】Docker imageごとのタイムゾーン設定方法まとめ" # 記事のタイトル
 emoji: "🐻" # アイキャッチとして使われる絵文字（1文字だけ）
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["kubernetes", "docker" "timezone" "linux"] # トピックス（タグ）["markdown", "rust", "aws"]のように指定する
