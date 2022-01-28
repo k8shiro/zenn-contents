@@ -112,3 +112,7 @@ cirrosのみlocaletime上書きの方法でもタイムゾーンを変更でき�
 
 > CirrOS は、OpenStack Compute のようなクラウドでテストイメージとして使用するために設計された、最小の Linux ディストリビューションです。 CirrOS ダウンロードページ から CirrOS をさまざまな形式でダウンロードできます。
 https://docs.openstack.org/ja/image-guide/obtain-images.html
+
+# まとめ
+
+Dockerコンテナのタイムゾーンを変更する場合、localetimeを上書きする方法であれば確実です。しかしKubernetesなどで動かす際にコンテナ内のファイルを上書きする方法は不都合な場合もあります。その場合には、使用しているイメージがどのOSかを確認して環境変数を設定する方法が使えるかを確認しましょう。
