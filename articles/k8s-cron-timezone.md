@@ -3,7 +3,7 @@ title: "KubernetesのCronJobのタイムゾーンについて調べてみた(オ
 emoji: "🐻" # アイキャッチとして使われる絵文字（1文字だけ）
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["kubernetes", "aws", "microk8s"] # トピックス（タグ）["markdown", "rust", "aws"]のように指定する
-published: false # 公開設定（falseにすると下書き）
+published: true # 公開設定（falseにすると下書き）
 ---
 
 KubernetesではCronJobマニフェストを作成して、Jobを定期的に実行することができます。
