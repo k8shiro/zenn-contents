@@ -47,6 +47,8 @@ $ kubectl get pod --all-namespaces | grep kube-controller-manager
 ※ 何も出力されない
 ```
 
+ただし、公式のドキュメント上で明言されている箇所を見つけられなかったので利用時には一度動作確認したほうがよいかもしれません。
+
 # Kubernetes v1.21(1.22 ?)以降で使える`CRON_TZ`環境変数でマニフェストからタイムゾーンを指定する方法(非推奨)
 
 ```
@@ -54,6 +56,6 @@ spec:
   schedule: "CRON_TZ=Etc/UTC */5 * * * *"
 ```
 
-のように書ける見たいです。
+のようにマニフェスト側に書ける見たいです。
 ただし、英語ドキュメントだと`FEATURE STATE: Kubernetes v1.21 [stable]`となっていて`CRON_TZ`か`TZ`環境変数について記載があり、推奨されないような注意がされています。
 参考: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
