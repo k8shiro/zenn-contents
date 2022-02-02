@@ -13,6 +13,7 @@ CronJobマニフェストには`schedule: "*/1 * * * *"`のようにいわゆる
 ## 基本的な環境(kubeadm等で構築されたKubernetes環境)
 
 基本的にUTCで動きます。
+
 CronJobのタイムゾーンはkube-controller-managerに依存すると記載されています。
 
 > すべてのCronJobスケジュール: 時刻はジョブが開始されたkube-controller-managerのタイムゾーンに基づいています。
@@ -27,6 +28,7 @@ kubeadm等で作成されたk8s環境では、kube-controller-managerはkube-sys
 ## Microk8sの場合
 
 ホスト側と同じタイムゾーン、ホスト側がJSTならCronJobもJSTで動きます。
+
 microk8sの場合kube-controller-manager相当のものがsystemdで動くらしいのでそのためではないかと思います。
 
 参考: https://microk8s.io/docs/configuring-services
