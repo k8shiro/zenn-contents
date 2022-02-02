@@ -10,7 +10,7 @@ KubernetesではCronJobマニフェストを作成して、Jobを定期的に実
 CronJobマニフェストには`schedule: "*/1 * * * *"`のようにいわゆるLinuxのcron と同じ形式でJobの実行タイミングを指定してできますが、この時、タイムゾーンがUTCなのかJSTなのかで実行されるタイミングが変わってしまいます。そこで、CronJobの実行されるタイムゾーンがどこに依存するのか調べました。
 
 # CronJobのタイムゾーン
-## 基本的な環境(kubeadm等で構築された環境)
+## 基本的な環境(kubeadm等で構築されたKubernetes環境)
 
 基本的にUTCで動きます。
 CronJobのタイムゾーンはkube-controller-managerに依存すると記載されています。
