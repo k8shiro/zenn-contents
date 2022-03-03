@@ -20,7 +20,8 @@ docker-compose up -d
 ```
 
 **接続**
-立ち上げたホストへブラウザからポート番号8888を指定して接続してください。
+
+立ち上げたホストへブラウザからポート番号8888を指定して接続してください。  
 JupyterLabのログイン画面のパスワードは `docker-compose.yml`のJUPYTER_PASSを変更(default: password)することで設定できます。
 
 
