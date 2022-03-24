@@ -3,10 +3,12 @@ title: "【Python】ディレクトリトラバーサル攻撃と対策" # 記�
 emoji: "🐻" # アイキャッチとして使われる絵文字（1文字だけ）
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["python"] # トピックス（タグ）["markdown", "rust", "aws"]のように指定する
-published: false # 公開設定（falseにすると下書き）
+published: true # 公開設定（falseにすると下書き）
 ---
 
-# ディレクトリトラバーサル
+ディレクトリトラバーサルの対策コードを2種類、pythonベースで紹介します。
+
+# ディレクトリトラバーサルとは
 
 > ディレクトリトラバーサル (英語: directory traversal) とは、利用者が供給した入力ファイル名のセキュリティ検証/無害化が不十分であるため、ファイルAPIに対して「親ディレクトリへの横断 (traverse)」を示すような文字がすり抜けて渡されてしまうような攻撃手法のことである。
 
@@ -74,7 +76,7 @@ curl http://127.0.0.1:8000/?name=../private/secret.txt
 のようにnameに`../`のような親ディレクトリの参照を含ませることでprivateディレクトリの中にあるファイルが外部から参照できてしまいます。
 
 
-# 安全な例① ハッシュ化する
+# 安全な例① ファイル名をハッシュ化する
 
 ユーザーの入力が直接ファイル名になっているのが問題なので、保存時にファイル名をハッシュ化することでディレクトリトラバーサルの対策になります。  
 保存と読み込みの両方で`/src/public/`とnameを連結する前にnameをハッシュ化することで'../'等の問題のある文字列が含まれることを防いでいます。
@@ -117,7 +119,7 @@ app.run(port=8000, host='0.0.0.0', debug=True)
 ```
 
 
-# 安全な例② 正規化
+# 安全な例② pathを正規化する
 
 `open`する前にパスを正規化してパス名の先頭の共通部分が公開ディレクトリかを確認します。
 
@@ -134,7 +136,7 @@ def index():
     """
     name = request.args.get('name', '')
     file = '/src/public/' + name
-    if os.path.commonprefix((os.path.realpath(file),'/src/public/')) != '/src/public/':
+    if os.path.commonprefix((os.path.realpath(file),'/src/public/')) != '/src/public/': # 正規化してチェック
       return 'failed'
     with open(file) as f:
         text = f.read()
@@ -149,7 +151,7 @@ def index():
     message = request.json['message']
 
     file = '/src/public/' + name
-    if os.path.commonprefix((os.path.realpath(file),'/src/public/')) != '/src/public/':
+    if os.path.commonprefix((os.path.realpath(file),'/src/public/')) != '/src/public/': # 正規化してチェック
       return 'failed'
     with open(file, 'w') as f:
       f.write(message)
@@ -158,3 +160,7 @@ def index():
 
 app.run(port=8000, host='0.0.0.0', debug=True)
 ```
+
+# まとめ
+
+pythonの場合を例にディレクトリトラバーサル対策をしたコードを紹介してみました。他にも入力に'/'が含まれるかどうかや実行ユーザーのパーミッションを正しく設定する等の対策も考えられますが、上記二つが確実でわかりやすいのではないかと思います。
