@@ -1,5 +1,5 @@
 ---
-title: "【React】axiosをmockしてstateの変更とrenderを待ってテストを実行するsample" # 記事のタイトル
+title: "【React】axiosをmockしてuseEffectのstateの変更とrenderを待ってテストを実行するsample" # 記事のタイトル
 emoji: "🐻" # アイキャッチとして使われる絵文字（1文字だけ）
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["React", "Enzyme", "jest", "React Testing Library"] # トピックス（タグ）["markdown", "rust", "aws"]のように指定する
@@ -7,7 +7,7 @@ published: false # 公開設定（falseにすると下書き）
 ---
 
 # 今回使ってるもののバージョン
-バージョンを適当に入れていくとうまく動きません。執筆時点ではEnzyme AdapterがReact16までの対応でReact16でReact Testing Libraryを使うには12.1.4以下にする必要がありました。
+バージョンを適当に入れていくとうまく動きません。執筆時点ではEnzyme AdapterがReact16までの対応でReact16でReact Testing Libraryを使うには12.1.4以下にする必要がありました。  
 
 ```
 $ npm list --depth=0"
@@ -26,8 +26,8 @@ app@0.1.0 /usr/src/app/app
 
 # テスト対象のサンプルコード
 
-ページを開くかreloadボタンを押すと`https://dog.ceo/api/breeds/image/random`から犬画像のURLを取得し、画面に表示するページになります。
-このページの`<img>`をテストするためには、外部APIを呼び出しているaxiosのmockを作り、ページを開いてからstateが変更され再renderを待ってから`<img>`をテストする必要があります。
+ページを開くかreloadボタンを押すと`https://dog.ceo/api/breeds/image/random`から犬画像のURLを取得し、画面に表示するページになります。  
+このページの`<img>`をテストするためには、外部APIを呼び出しているaxiosのmockを作り、ページを開いてからstateが変更され再renderを待ってから`<img>`をテストする必要があります。  
 
 
 ```
@@ -48,11 +48,11 @@ function RandomDog() {
       .catch(() =>{
         setIsLoading(false);
       })
-  }
+  };
 
   useEffect(() => {
     getDog()
-  }, [])
+  }, []);
 
   return (
     <>
@@ -69,4 +69,59 @@ function RandomDog() {
 }
 
 export default RandomDog;
+```
+
+# 1. EnzymeでmountしてReact Testing LibraryのwaitForで再描画待ちするサンプル
+Enzymeが使えたほうが便利なので基本的にはこの方法が安定かと思います。  
+axiosのmockはjestのspyOnを使います。Enzymeだけだと再描画待ちをしてくれないのでReact Testing LibraryのwaitForを使います。  
+waitForの中で`wrapper.update();`していることに注意してください。
+
+
+
+```
+test('test RandomDog with mount and waitFor', async () => {
+  jest.spyOn(axios, 'get').mockResolvedValue({"data": {"message":"https://example.com/test_image.jpg", "status":"success"}});
+
+  let wrapper;
+  wrapper = mount(<RandomDog />);
+
+  await waitFor(() => {
+    wrapper.update();
+    expect(wrapper.find('img').props().src).toBe('https://example.com/test_image.jpg');
+  });
+});
+```
+
+# 2. React Testing LibraryのrenderとwaitForで再描画待ちするサンプル
+Enzymeを使わないのでバージョンの依存関係が楽になります。  
+waitForで待つのは同じです。
+
+```
+test('test RandomDog with render and waitFor ', async () => {
+  jest.spyOn(axios, 'get').mockResolvedValue({"data": {"message":"https://example.com/test_image.jpg", "status":"success"}});
+  render(<RandomDog />);
+
+  await waitFor(() => {
+    const img = screen.getByRole('img');
+    expect(img.getAttribute('src')).toBe('https://example.com/test_image.jpg');
+  });
+});
+```
+
+# 3. setTimeoutで再描画待ちするサンプル
+
+無理やり動かしているので非推奨です。再描画をsetTimeoutを使ったsleepで待つようにしてます。actの中に入れないと警告が出るので以下のようなコードになってます。
+
+```
+test('test RandomDog with mount and act and setTimeout', async () => {
+  jest.spyOn(axios, 'get').mockResolvedValue({"data": {"message":"https://example.com/test_image.jpg", "status":"success"}});
+  let wrapper;
+  await act(async () => {
+    wrapper = mount(<RandomDog />);
+    await new Promise((r) => setTimeout(r, 2000));
+  });
+
+  wrapper.update()
+  expect(wrapper.find('img').props().src).toBe('https://example.com/test_image.jpg');
+});
 ```
