@@ -30,7 +30,10 @@ app@0.1.0 /usr/src/app/app
 # テスト対象のサンプルコード
 
 ページを開くかreloadボタンを押すと`https://dog.ceo/api/breeds/image/random`から犬画像のURLを取得し、画面に表示するページになります。  
-このページの`<img>`をテストするためには、外部APIを呼び出しているaxiosのmockを作り、ページを開いてからstateが変更され再renderを待ってから`<img>`をテストする必要があります。  
+このページの`<img>`をテストするためには、外部APIを呼び出しているaxiosのmockを作り、ページを開いてからstateが変更され再renderを待ってから`<img>`をテストする必要があります。 
+
+- コード: https://github.com/k8shiro/ReactJestEnzymeSample
+- ページ: https://k8shiro.github.io/ReactJestEnzymeSample/
 
 
 ```
