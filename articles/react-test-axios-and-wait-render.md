@@ -6,8 +6,11 @@ topics: ["React", "Enzyme", "jest", "React Testing Library"] # トピックス�
 published: false # 公開設定（falseにすると下書き）
 ---
 
+Reactで単体テストを書く時のサンプルです。外部APIの呼び出しをmockし再renderされるコードに対応しています。
+
 # 今回使ってるもののバージョン
 バージョンを適当に入れていくとうまく動きません。執筆時点ではEnzyme AdapterがReact16までの対応でReact16でReact Testing Libraryを使うには12.1.4以下にする必要がありました。  
+Enzymeが不要な場合はあまり気にしなくても大丈夫かもしれません。
 
 ```
 $ npm list --depth=0"
