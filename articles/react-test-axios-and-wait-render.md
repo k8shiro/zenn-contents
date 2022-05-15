@@ -3,7 +3,7 @@ title: "【React】axiosをmockしてuseEffectのstateの変更とrenderを待�
 emoji: "🐻" # アイキャッチとして使われる絵文字（1文字だけ）
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["React", "Enzyme", "jest", "React Testing Library"] # トピックス（タグ）["markdown", "rust", "aws"]のように指定する
-published: false # 公開設定（falseにすると下書き）
+published: true # 公開設定（falseにすると下書き）
 ---
 
 Reactで単体テストを書く時のサンプルです。外部APIの呼び出しをmockする必要がありテスト中にページが再renderされるコードに対応しています。
