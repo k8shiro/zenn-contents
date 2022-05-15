@@ -1,5 +1,5 @@
 ---
-title: "【React】axiosをmockしてuseEffectのstateの変更とrenderを待ってテストを実行するsample" # 記事のタイトル
+title: "【React】axiosをmockしてuseEffectのstateの変更とrenderを待って単体テストを実行するsample" # 記事のタイトル
 emoji: "🐻" # アイキャッチとして使われる絵文字（1文字だけ）
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["React", "Enzyme", "jest", "React Testing Library"] # トピックス（タグ）["markdown", "rust", "aws"]のように指定する
