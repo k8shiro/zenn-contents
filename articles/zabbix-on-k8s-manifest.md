@@ -112,3 +112,5 @@ spec:
           value: "localhost"
 
 ```
+
+zabbix-web-nginx-pgsql:centos-6.0-latestをつかっているのはubuntuのイメージを使ったらphpのエラーが表示されていたためです。
