@@ -9,7 +9,7 @@ published: true # 公開設定（falseにすると下書き）
 Kubernetes上にZabbix 6.0を上げるマニフェストです。
 Helmが使える人はHelm使ったほうが良いかもしれません。
 
-- Helm Chart For Zabbixhttps://artifacthub.io/packages/helm/aekondratiev/zabbix-server
+- Helm Chart For Zabbix : https://artifacthub.io/packages/helm/aekondratiev/zabbix-server
 
 ```
 apiVersion: v1
