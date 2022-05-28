@@ -113,4 +113,5 @@ spec:
 
 ```
 
+DBは永続化していない状態なので再起動すると消えます。
 zabbix-web-nginx-pgsql:centos-6.0-latestをつかっているのはubuntuのイメージを使ったらphpのエラーが表示されていたためです。
