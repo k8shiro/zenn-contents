@@ -6,7 +6,6 @@ topics: ["js", "React"]
 published: false # 公開設定（falseにすると下書き）
 ---
 
-# Reactにsigma.jsでネットワークグラフを書いてみた
 https://www.sigmajs.org/ でネットワークグラフを描画して見たいと思います。
 今回はReact上で使用したいのでreact-sigmaの方を使って行きます。
 
