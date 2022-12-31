@@ -1,5 +1,5 @@
 ---
-title: "buildしたReactページをS3にaws-cli s3 syncしようとして失敗した話 --exact-timestampsと--size-onlyのファイルが混ざっていて--deleteもしたい" # 記事のタイトル
+title: "buildしたReactページをS3にaws-cli s3 syncしようとして失敗した話" # 記事のタイトル
 emoji: "🐻" # アイキャッチとして使われる絵文字（1文字だけ）
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["React", "S3", "AWS"] # トピックス（タグ）["markdown", "rust", "aws"]のように指定する
