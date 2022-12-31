@@ -1,11 +1,10 @@
 ---
-Title: "k8s上にdocker buildできるGitlab Runnerを立ち上げてCI環境をつくる" # 記事のタイトル
-emoji: "🐻" # アイキャッチとして使われる絵文字（1文字だけ）
-type: "tech" # tech: 技術記事 / idea: アイデア
-topics: ["kubernetes", "gitlab", "ci", "docker"] # トピックス（タグ）["markdown", "rust", "aws"]のように指定する
+title: "" # 記事のタイトル
+emoji: "😸" # アイキャッチとして使われる絵文字（1文字だけ）
+type: "tech" # tech: 技術記事 / idea: アイデア記事
+topics: [] # タグ。["markdown", "rust", "aws"]のように指定する
 published: false # 公開設定（falseにすると下書き）
 ---
-
 k8s上にdockerコマンドを実行できるGitlab Runnerをデプロイする手順を紹介します。
 この手順で作成されるものはkubernetes executerと呼ばれるタイプのrunnerになりますが、dockerコマンドを実行できるようにdind(docker in docer)と呼ばれる手法を実現できるように設定していきます。また、Gitlab.comで提供されているdockerタグのついたshared runneと共存できるように作りたいと思います。
 
