@@ -3,7 +3,7 @@ title: "Reactにsigmaでネットワークグラフを書いてみた"
 emoji: "🐻"
 type: "tech"
 topics: ["js", "React"]
-published: false # 公開設定（falseにすると下書き）
+published: false
 ---
 
 https://www.sigmajs.org/ でネットワークグラフを描画して見たいと思います。
