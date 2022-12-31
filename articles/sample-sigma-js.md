@@ -1,10 +1,9 @@
 ---
-title: "Reactにsigmaでネットワークグラフを書いてみた" # 記事のタイトル
-emoji: "🐻" # アイキャッチとして使われる絵文字（1文字だけ）
-type: "tech" # tech: 技術記事 / idea: アイデア
-topics: ["js", "React"] # トピックス（タグ）["markdown", "rust", "aws"]のように指定する
+title: "Reactにsigmaでネットワークグラフを書いてみた"
+emoji: "🐻"
+type: "tech"
+topics: ["js", "React"]
 published: false # 公開設定（falseにすると下書き）
-
 ---
 
 # Reactにsigma.jsでネットワークグラフを書いてみた
