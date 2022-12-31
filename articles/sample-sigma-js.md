@@ -1,12 +1,12 @@
 ---
-title: "Reactにsigmajs.jsでネットワークグラフを書いてみた" # 記事のタイトル
+title: "Reactにsigma.jsでネットワークグラフを書いてみた" # 記事のタイトル
 emoji: "🐻" # アイキャッチとして使われる絵文字（1文字だけ）
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["js", "React"] # トピックス（タグ）["markdown", "rust", "aws"]のように指定する
 published: false # 公開設定（falseにすると下書き）
 ---
 
-# Reactにsigmajs.jsでネットワークグラフを書いてみた
+# Reactにsigma.jsでネットワークグラフを書いてみた
 https://www.sigmajs.org/ でネットワークグラフを描画して見たいと思います。
 今回はoReact上で使用したいのでreact-sigmaの方を使って行きます。
 
