@@ -1,5 +1,5 @@
 ---
-title: "Reactにsigmaでネットワークグラフを書いてみた"
+title: "Reactにsigma.jsでネットワークグラフを書いてみた"
 emoji: "🐻"
 type: "tech"
 topics: ["js", "React"]
